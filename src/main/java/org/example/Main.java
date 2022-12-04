@@ -7,12 +7,24 @@ public class Main {
     public static void main(String[] args){
         FirefoxDriver driver=new FirefoxDriver();
         driver.get("https://www.ithsdistans.se/login/index.php");
-        WebElement element=driver.findElement(By.xpath("//input[@name='username']"));
-        element.sendKeys("MySeleniumTest1");
+        WebElement user =driver.findElement(By.xpath("//input[@name='username']"));
+        user.sendKeys("MySeleniumTest1");
 
-        WebElement button=driver.findElement(By.xpath("//input[@name='password']"));
+        WebElement password_test =driver.findElement(By.xpath("//input[@name='password']"));
+        password_test.sendKeys("Test password");
+      //  password_test.click();
 
-        button.click();
+        WebElement checkBoxSelected = driver.findElement(By.id("rememberusername"));
+         //  Checkbox - checking if its selected
+
+    boolean isSelected = checkBoxSelected.isSelected();
+
+    // performing click operation if element is not selected
+		if(isSelected == false) {
+
+            System.out.println("Checkbox is Not Toggled On, let toggle it");
+            checkBoxSelected.click();
     }
 
+    }
 }
